@@ -72,6 +72,9 @@
       ipcRenderer.on('checking_for_update', () => {
         console.log('Checking for update...');
       });
+      ipcRenderer.on('consolelog', (log_message) => {
+        console.log(log_message);
+      });
       function closeNotification() {
         notification.classList.add('hidden');
       }

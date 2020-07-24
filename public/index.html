@@ -66,6 +66,12 @@
         restartButton.classList.remove('hidden');
         notification.classList.remove('hidden');
       });
+      ipcRenderer.on('update_not_available', () => {
+        console.log('No Update available');
+      });
+      ipcRenderer.on('checking_for_update', () => {
+        console.log('Checking for update...');
+      });
       function closeNotification() {
         notification.classList.add('hidden');
       }

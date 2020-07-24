@@ -92,6 +92,12 @@ if (isDevelopment) {
   }
 }
 
+autoUpdater.setFeedURL({
+  provider: "github",
+  owner: "dreiekk",
+  repo: "electron-auto-update-test"
+});
+
 ipcMain.on('app_version', (event) => {
   event.sender.send('app_version', { version: app.getVersion() });
 });
@@ -105,7 +111,12 @@ autoUpdater.on('update-available', () => {
   win.webContents.send('update_available');
 });
 
+autoUpdater.on('update-not-available', () => {
+  win.webContents.send('update_not_available');
+});
+
 autoUpdater.on('checking-for-update', () => {
+  win.webContents.send('checking_for_update');
   console.log('Checking for updates...');
 });
 

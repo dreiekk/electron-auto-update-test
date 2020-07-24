@@ -104,7 +104,8 @@ ipcMain.on('app_version', (event) => {
 
 ipcMain.on('start_update_check', (event) => {
   console.log('Starting update check routine');
-  autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.checkForUpdates();
+  // autoUpdater.checkForUpdatesAndNotify();
 });
 
 autoUpdater.on('update-available', () => {
